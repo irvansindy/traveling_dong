@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_dong/ui/widgets/custom_button.dart';
 import '../../shared/theme.dart';
 
 class BonusPage extends StatelessWidget {
@@ -151,33 +152,44 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget submitButton() {
-      return Container(
+      return CustomButton(
+        title: 'Start Fly Now',
         width: 220,
-        height: 55,
         // ignore: prefer_const_constructors
         margin: EdgeInsets.only(
           top: 50,
         ),
-        child: TextButton(
-          onPressed: () => Navigator.pushNamed(context, '/main'),
-          // Navigator.pushNamed(context, '/sign-up'),
-          style: TextButton.styleFrom(
-            backgroundColor: primaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                defaultRadius,
-              ),
-            ),
-          ),
-          child: Text(
-            'Start Fly Now',
-            style: whiteTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: medium,
-            ),
-          ),
-        ),
+        onPressed: () {
+          Navigator.pushNamed(context, '/main');
+        },
       );
+      // Container(
+      //   width: 220,
+      //   height: 55,
+      //   // ignore: prefer_const_constructors
+      //   margin: EdgeInsets.only(
+      //     top: 50,
+      //   ),
+      //   child: TextButton(
+      //     onPressed: () => Navigator.pushNamed(context, '/main'),
+      //     // Navigator.pushNamed(context, '/sign-up'),
+      //     style: TextButton.styleFrom(
+      //       backgroundColor: primaryColor,
+      //       shape: RoundedRectangleBorder(
+      //         borderRadius: BorderRadius.circular(
+      //           defaultRadius,
+      //         ),
+      //       ),
+      //     ),
+      //     child: Text(
+      //       'Start Fly Now',
+      //       style: whiteTextStyle.copyWith(
+      //         fontSize: 18,
+      //         fontWeight: medium,
+      //       ),
+      //     ),
+      //   ),
+      // );
     }
 
     return Scaffold(

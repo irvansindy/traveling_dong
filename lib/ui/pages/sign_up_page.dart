@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_dong/ui/widgets/custom_button.dart';
 import '../../shared/theme.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -197,28 +198,12 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget submitButton() {
-        // ignore: sized_box_for_whitespace
-        return Container(
-          width: double.infinity,
-          height: 55,
-          child: TextButton(
-            onPressed: () => Navigator.pushNamed(context, '/bonus'),
-            style: TextButton.styleFrom(
-              backgroundColor: primaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  defaultRadius,
-                ),
-              ),
-            ),
-            child: Text(
-              'Get Started',
-              style: whiteTextStyle.copyWith(
-                fontSize: 18,
-                fontWeight: medium,
-              ),
-            ),
-          ),
+        return CustomButton(
+          title: 'Get Started',
+          onPressed: () {
+            Navigator.pushNamed(context, '/bonus');
+          },
+          
         );
       }
 

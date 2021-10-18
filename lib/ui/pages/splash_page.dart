@@ -44,12 +44,13 @@ class _SplashPageState extends State<SplashPage> {
               ),
             ),
             Text(
-              'AIRPLANE',
+              'TRAVELLING OTAK',
               style: whiteTextStyle.copyWith(
                 fontSize: 32,
                 fontWeight: medium,
                 letterSpacing: 10,
               ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
