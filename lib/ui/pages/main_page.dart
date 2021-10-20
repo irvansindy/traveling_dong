@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:travelling_dong/ui/pages/home_page.dart';
 import 'package:travelling_dong/ui/widgets/custom_bottom_navigation.dart';
 import '../../shared/theme.dart';
 
@@ -9,6 +10,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget buildContent() {
+      return HomePage();
+    }
+
     Widget customBottomNavigation() {
       return Align(
         alignment: Alignment.bottomCenter,
@@ -56,6 +61,7 @@ class MainPage extends StatelessWidget {
       backgroundColor: backColor,
       body: Stack(
         children: [
+          buildContent(),
           customBottomNavigation(),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelling_dong/ui/widgets/custom_button.dart';
+import 'package:travelling_dong/ui/widgets/custom_text_form_field.dart';
 import '../../shared/theme.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -25,175 +26,35 @@ class SignUpPage extends StatelessWidget {
 
     Widget inputSection() {
       Widget inputName() {
-        return Container(
-          // ignore: prefer_const_constructors
-          margin: EdgeInsets.only(
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Full Name',
-                style: blackTextStyle.copyWith(
-                  fontWeight: regular,
-                ),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: blackColor,
-                decoration: InputDecoration(
-                  hintText: 'Your Full Name',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: primaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+        // ignore: prefer_const_constructors
+        return CustomTextFormField(
+          title: 'Full Name',
+          hintText: 'Your Full Name',
         );
       }
 
       Widget inputEmail() {
-        return Container(
-          // ignore: prefer_const_constructors
-          margin: EdgeInsets.only(
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Email Address',
-                style: blackTextStyle.copyWith(
-                  fontWeight: regular,
-                ),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: blackColor,
-                decoration: InputDecoration(
-                  hintText: 'Your Email Address',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: primaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+        // ignore: prefer_const_constructors
+        return CustomTextFormField(
+          title: 'Email',
+          hintText: 'Your Email Address',
         );
       }
 
       Widget inputPassword() {
-        return Container(
-          // ignore: prefer_const_constructors
-          margin: EdgeInsets.only(
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Password',
-                style: blackTextStyle.copyWith(
-                  fontWeight: regular,
-                ),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: blackColor,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Your Password',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: primaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+        // ignore: prefer_const_constructors
+        return CustomTextFormField(
+          title: 'Password',
+          hintText: 'Your Password',
+          obscureText: true,
         );
       }
 
       Widget inputHobby() {
-        return Container(
-          // ignore: prefer_const_constructors
-          margin: EdgeInsets.only(
-            bottom: 30,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hobby',
-                style: blackTextStyle.copyWith(
-                  fontWeight: regular,
-                ),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: blackColor,
-                decoration: InputDecoration(
-                  hintText: 'Your Hobby',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: primaryColor,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+        // ignore: prefer_const_constructors
+        return CustomTextFormField(
+          title: 'Hobby',
+          hintText: 'Your Hobby',
         );
       }
 
@@ -203,7 +64,6 @@ class SignUpPage extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, '/bonus');
           },
-          
         );
       }
 
