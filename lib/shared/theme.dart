@@ -10,11 +10,13 @@ Color primaryColor = Color(0xff5C40CC);
 Color blackColor = Color(0xff1F1449);
 Color whiteColor = Color(0xffFFFFFF);
 Color greyColor = Color(0xff9698A9);
-Color backColor = Color(0xffE5E5E5);
+Color backColor = Color(0xffFAFAFA);
 Color cyanColor = Color(0xff0EC3AE);
 Color pinkColor = Color(0xffEB70A5);
 Color inActiveColor = Color(0xffDBD7EC);
 Color transColor = Color(0x00000000);
+Color colorunAvail = Color(0xffEBECF1);
+Color colorAvail = Color(0xffE0D9FF);
 
 TextStyle blackTextStyle = GoogleFonts.poppins(color: blackColor);
 

@@ -163,33 +163,6 @@ class BonusPage extends StatelessWidget {
           Navigator.pushNamed(context, '/main');
         },
       );
-      // Container(
-      //   width: 220,
-      //   height: 55,
-      //   // ignore: prefer_const_constructors
-      //   margin: EdgeInsets.only(
-      //     top: 50,
-      //   ),
-      //   child: TextButton(
-      //     onPressed: () => Navigator.pushNamed(context, '/main'),
-      //     // Navigator.pushNamed(context, '/sign-up'),
-      //     style: TextButton.styleFrom(
-      //       backgroundColor: primaryColor,
-      //       shape: RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.circular(
-      //           defaultRadius,
-      //         ),
-      //       ),
-      //     ),
-      //     child: Text(
-      //       'Start Fly Now',
-      //       style: whiteTextStyle.copyWith(
-      //         fontSize: 18,
-      //         fontWeight: medium,
-      //       ),
-      //     ),
-      //   ),
-      // );
     }
 
     return Scaffold(
