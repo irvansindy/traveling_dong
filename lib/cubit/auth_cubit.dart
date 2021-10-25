@@ -8,7 +8,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  void singUp({
+  void signUp({
     required String email,
     required String password,
     required String name,
@@ -25,6 +25,16 @@ class AuthCubit extends Cubit<AuthState> {
       );
 
       emit(AuthSuccess(user));
+    } catch (e) {
+      emit(AuthFailed(e.toString()));
+    }
+  }
+
+  void signOut() async {
+    try {
+      emit(AuthLoading());
+      await AuthService().signOut();
+      emit(AuthInitial());
     } catch (e) {
       emit(AuthFailed(e.toString()));
     }

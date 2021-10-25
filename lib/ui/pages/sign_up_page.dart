@@ -7,14 +7,14 @@ import 'package:travelling_dong/ui/widgets/custom_button.dart';
 import 'package:travelling_dong/ui/widgets/custom_text_form_field.dart';
 import '../../shared/theme.dart';
 
-// ignore: must_be_immutable
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key: key);
 
-  TextEditingController nameController = TextEditingController(text: '');
-  TextEditingController emailController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController hobbyController = TextEditingController(text: '');
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController passwordController =
+      TextEditingController(text: '');
+  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +94,7 @@ class SignUpPage extends StatelessWidget {
             return CustomButton(
               title: 'Get Started',
               onPressed: () {
-                context.read<AuthCubit>().singUp(
+                context.read<AuthCubit>().signUp(
                       email: emailController.text,
                       password: passwordController.text,
                       name: nameController.text,
