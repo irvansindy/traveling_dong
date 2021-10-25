@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "543847190339",
+    "project_id": "travelling-dong",
+    "storage_bucket": "travelling-dong.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543847190339:android:d00a1c00a40c8b57c629f6",
+        "android_client_info": {
+          "package_name": "com.irvansindy.travelling_dong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543847190339-5v5ok46bppcgbm54hh2m2h6l60j61njd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTlPAiprtlsRh10xzshee7MdnfzMPBEkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543847190339-5v5ok46bppcgbm54hh2m2h6l60j61njd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
