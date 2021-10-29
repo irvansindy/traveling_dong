@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelling_dong/cubit/page_cubit.dart';
-import 'package:travelling_dong/ui/pages/card_page.dart';
+import 'package:travelling_dong/ui/pages/bonus_page.dart';
+// import 'package:travelling_dong/ui/pages/card_page.dart';
 import 'package:travelling_dong/ui/pages/home_page.dart';
 import 'package:travelling_dong/ui/pages/setting_page.dart';
 import 'package:travelling_dong/ui/pages/transaction_page.dart';
@@ -22,7 +23,8 @@ class MainPage extends StatelessWidget {
         case 1:
           return TransactionPage();
         case 2:
-          return CardPage();
+          // return CardPage();
+          return BonusPage();
         case 3:
           return SettingPage();
         default:

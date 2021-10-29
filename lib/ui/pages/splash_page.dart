@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:travelling_dong/cubit/auth_cubit.dart';
 // ignore: unused_import
 import 'package:travelling_dong/ui/pages/get_started_page.dart';
 import '../../shared/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -25,6 +27,7 @@ class _SplashPageState extends State<SplashPage> {
           (route) => false,
         );
       } else {
+        context.read<AuthCubit>().getCurrentUser(user.uid);
         Navigator.pushNamedAndRemoveUntil(
           context,
           '/main',

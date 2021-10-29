@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travelling_dong/cubit/auth_cubit.dart';
 import 'package:travelling_dong/shared/theme.dart';
 import 'package:travelling_dong/ui/widgets/custom_destination_tile.dart';
 import 'package:travelling_dong/ui/widgets/custom_popular_destination.dart';
@@ -12,56 +14,64 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget header() {
       // ignore: avoid_unnecessary_containers
-      return Container(
-        margin: EdgeInsets.only(
-          top: 30,
-          left: defaultMarginPadding,
-          right: defaultMarginPadding,
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                // ignore: prefer_const_literals_to_create_immutables
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // ignore: duplicate_ignore
+      return BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is AuthSuccess) {
+            return Container(
+              margin: EdgeInsets.only(
+                top: 30,
+                left: defaultMarginPadding,
+                right: defaultMarginPadding,
+              ),
+              child: Row(
                 children: [
-                  Text(
-                    'Howdy, \nReka Santi',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 24,
-                      fontWeight: semiBold,
+                  Expanded(
+                    child: Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // ignore: duplicate_ignore
+                      children: [
+                        Text(
+                          'Howdy, \n${state.user.name}',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 24,
+                            fontWeight: semiBold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          'Where to fly today?',
+                          style: greyTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: light,
+                          ),
+                        ),
+                      ],
                     ),
-                    overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(
-                    height: 6,
-                  ),
-                  Text(
-                    'Where to fly today?',
-                    style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: light,
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage(
+                          // 'assets/image_profile.png',
+                          'assets/reka_profile.jpeg',
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage(
-                    // 'assets/image_profile.png',
-                    'assets/reka_profile.jpeg',
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+            );
+          } else {
+            return SizedBox();
+          }
+        },
       );
     }
 
