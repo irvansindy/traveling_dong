@@ -1,77 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_dong/cubit/seat_cubit.dart';
 import 'package:travelling_dong/shared/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SeatItem extends StatelessWidget {
   // NOTE: for status, 0 : avail, 1 : selected, 2 : unavail
-  final int status;
+  // final int status;
+  final String id;
+  final bool isAvail;
   const SeatItem({
     Key? key,
-    required this.status,
+    required this.id,
+    this.isAvail = true,
+    // required this.status,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    bool isSelected = context.watch<SeatCubit>().isSelected(id);
+
     backgroundColor() {
-      switch (status) {
-        case 0:
-          return colorAvail;
-        case 1:
-          return primaryColor;
-        case 2:
-          return colorunAvail;
-        default:
-          return colorunAvail;
+      if (!isAvail) {
+        return colorAvail;
+      } else if (isSelected) {
+        return primaryColor;
+      } else {
+        return colorunAvail;
       }
     }
 
     borderColor() {
-      switch (status) {
-        case 0:
-          return primaryColor;
-        case 1:
-          return primaryColor;
-        case 2:
-          return colorunAvail;
-        default:
-          return colorunAvail;
+      if (!isAvail) {
+        return colorAvail;
+      } else {
+        return primaryColor;
       }
     }
 
     childText() {
-      switch (status) {
-        case 0:
-          // ignore: prefer_const_constructors
-          return SizedBox();
-        case 1:
-          return Center(
-            child: Text(
-              'YOU',
-              style: whiteTextStyle.copyWith(
-                fontWeight: semiBold,
-              ),
+      if (isSelected) {
+        return Center(
+          child: Text(
+            'YOU',
+            style: whiteTextStyle.copyWith(
+              fontWeight: semiBold,
             ),
-          );
-        case 2:
-          // ignore: prefer_const_constructors
-          return SizedBox();
-        default:
-          // ignore: prefer_const_constructors
-          return SizedBox();
+          ),
+        );
+      } else {
+        return const SizedBox();
       }
     }
 
-    return Container(
-      width: 48,
-      height: 48,
-      decoration: BoxDecoration(
-        color: backgroundColor(),
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: borderColor(),
-          width: 2,
+    return GestureDetector(
+      onTap: () {
+        if (isAvail) {
+          context.read<SeatCubit>().selectSeat(id);
+        }
+      },
+      child: Container(
+        width: 48,
+        height: 48,
+        decoration: BoxDecoration(
+          color: backgroundColor(),
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(
+            color: borderColor(),
+            width: 2,
+          ),
         ),
+        child: childText(),
       ),
-      child: childText(),
     );
   }
 }

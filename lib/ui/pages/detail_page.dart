@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:travelling_dong/models/destination_model.dart';
 import 'package:travelling_dong/shared/theme.dart';
 import 'package:travelling_dong/ui/pages/choose_seat_page.dart';
 import 'package:travelling_dong/ui/widgets/custom_button.dart';
@@ -8,7 +10,8 @@ import 'package:travelling_dong/ui/widgets/interest_item.dart';
 import 'package:travelling_dong/ui/widgets/photo_item_detail.dart';
 
 class DetailDestinationPage extends StatelessWidget {
-  const DetailDestinationPage({Key? key}) : super(key: key);
+  final DestinationModel destination;
+  const DetailDestinationPage(this.destination, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +19,10 @@ class DetailDestinationPage extends StatelessWidget {
       return Container(
         width: double.infinity,
         height: 450,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-              'assets/destinasi1.png',
+            image: NetworkImage(
+              destination.imageUrl,
             ),
             fit: BoxFit.cover,
           ),
@@ -80,7 +83,7 @@ class DetailDestinationPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Rialto Bridge',
+                            destination.name,
                             style: whiteTextStyle.copyWith(
                               fontSize: 24,
                               fontWeight: semiBold,
@@ -88,7 +91,7 @@ class DetailDestinationPage extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            'Italia',
+                            destination.country,
                             style: whiteTextStyle.copyWith(
                               fontSize: 16,
                               fontWeight: light,
@@ -114,7 +117,7 @@ class DetailDestinationPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '4.8',
+                          destination.rating.toString(),
                           // rating.toString(),
                           style: whiteTextStyle.copyWith(
                             fontSize: 16,
@@ -242,7 +245,12 @@ class DetailDestinationPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'IDR 2.500.000',
+                            // 'IDR ${destination.price}',
+                            NumberFormat.currency(
+                              locale: 'id',
+                              symbol: 'IDR ',
+                              decimalDigits: 0,
+                            ).format(destination.price),
                             style: blackTextStyle.copyWith(
                               fontSize: 18,
                               fontWeight: medium,
@@ -266,7 +274,7 @@ class DetailDestinationPage extends StatelessWidget {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ChooseSeatPage(),
+                          builder: (context) => ChooseSeatPage(destination),
                         ),
                       ),
                     ),

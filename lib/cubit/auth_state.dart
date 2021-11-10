@@ -6,13 +6,14 @@ abstract class AuthState extends Equatable {
   @override
   List<Object> get props => [];
 }
+
 // untuk menginisialisasi data user diawal
 class AuthInitial extends AuthState {}
 
-// proses eksekusi cek data user saat dipost 
+// proses eksekusi cek data user saat dipost
 class AuthLoading extends AuthState {}
 
-// 
+//
 class AuthSuccess extends AuthState {
   final UserModel user;
 

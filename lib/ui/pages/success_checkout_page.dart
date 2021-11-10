@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_dong/cubit/page_cubit.dart';
 import 'package:travelling_dong/shared/theme.dart';
 import 'package:travelling_dong/ui/widgets/custom_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SuccessCheckoutPage extends StatelessWidget {
   const SuccessCheckoutPage({Key? key}) : super(key: key);
@@ -62,6 +64,7 @@ class SuccessCheckoutPage extends StatelessWidget {
           top: 50,
         ),
         onPressed: () {
+          context.read<PageCubit>().setPage(1);
           Navigator.pushNamedAndRemoveUntil(
             context,
             '/main',

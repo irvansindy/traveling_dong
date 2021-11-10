@@ -38,6 +38,7 @@ class AuthService {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
 
+      // mengambil data yang ada di firebase
       UserModel user =
           await UserService().getUserById(userCredential.user!.uid);
 

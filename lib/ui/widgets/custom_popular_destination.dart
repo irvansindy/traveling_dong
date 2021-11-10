@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_dong/models/destination_model.dart';
 import 'package:travelling_dong/shared/theme.dart';
 import 'package:travelling_dong/ui/pages/detail_page.dart';
 
 class PopularDestination extends StatelessWidget {
-  final String name;
-  final String city;
-  final String imageUrl;
-  final double rating;
+  final DestinationModel destination;
 
-  const PopularDestination({
+  const PopularDestination(
+    this.destination, {
     Key? key,
-    required this.name,
-    required this.city,
-    required this.imageUrl,
-    this.rating = 0.0,
   }) : super(key: key);
 
   @override
@@ -23,7 +18,7 @@ class PopularDestination extends StatelessWidget {
         context,
         MaterialPageRoute(
           // ignore: prefer_const_constructors
-          builder: (context) => DetailDestinationPage(),
+          builder: (context) => DetailDestinationPage(destination),
         ),
       ),
       child: Container(
@@ -58,8 +53,8 @@ class PopularDestination extends StatelessWidget {
                 // ignore: prefer_const_constructors
                 image: DecorationImage(
                   // ignore: prefer_const_constructors
-                  image: AssetImage(
-                    imageUrl,
+                  image: NetworkImage(
+                    destination.imageUrl,
                   ),
                   fit: BoxFit.fill,
                 ),
@@ -100,7 +95,7 @@ class PopularDestination extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        rating.toString(),
+                        destination.rating.toString(),
                         style: blackTextStyle.copyWith(
                           fontWeight: medium,
                         ),
@@ -120,7 +115,7 @@ class PopularDestination extends StatelessWidget {
                 children: [
                   // ignore: prefer_const_constructors
                   Text(
-                    name,
+                    destination.name,
                     style: blackTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: medium,
@@ -133,7 +128,7 @@ class PopularDestination extends StatelessWidget {
                   ),
                   // ignore: prefer_const_constructors
                   Text(
-                    city,
+                    destination.country,
                     style: greyTextStyle.copyWith(
                       fontWeight: light,
                     ),

@@ -22,6 +22,7 @@ class UserService {
 
   Future<UserModel> getUserById(String id) async {
     try {
+      // DocumentSnapshot digunakan untuk mengambil 1 data berdasarkan primary key
       DocumentSnapshot snapshot = await _userReference.doc(id).get();
       return UserModel(
         id: id,
